@@ -1,0 +1,33 @@
+
+name: isOdd-ci
+
+on: [push, pull_request]
+
+jobs:
+  isOdd:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Setup Deno
+        uses: denolib/setup-deno@master
+        with:
+          deno-version: 1.0.0
+
+      - name: Setup Node
+        uses: actions/setup-node@master
+        with:
+          node-version: 12
+
+      - name: Print deno version
+        run: deno --version
+
+      - name: Check format
+        run: deno fmt --check
+
+      - name: Run tests
+        run: deno test test.ts
