@@ -1,5 +1,5 @@
 
-name: isOdd-ci
+name: deno-mtrand-ci
 
 on: [push, pull_request]
 
