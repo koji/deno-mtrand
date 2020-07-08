@@ -1,12 +1,12 @@
 // cast number to unsigned 32-bit int
 export const castUint32 = (n: number) => {
   return new Uint32Array([n])[0];
-}
+};
 
 const _mtrand = function* (seed: number) {
   // parameters c++ ref
   // http://www.cplusplus.com/reference/random/mt19937/
-  const W =  32;
+  const W = 32;
   const N = 624;
   const M = 397;
   const F = 1812433253;
@@ -31,7 +31,8 @@ const _mtrand = function* (seed: number) {
     let x: any = mt[index - 1] ^ (mt[index - 1] >>> 30);
     mt[index] = castUint32(
       ((((x & 0xffff0000) >>> 16) * F) << 16) +
-      ((((x & 0x0000ffff) >>>  0) * F) <<  0) + index);
+        ((((x & 0x0000ffff) >>> 0) * F) << 0) + index,
+    );
   }
 
   // main
@@ -51,10 +52,10 @@ const _mtrand = function* (seed: number) {
       yield castUint32(y);
     }
   } while (true);
-}
+};
 
 export const mtrand = (seed: any) => {
   return _mtrand(seed);
-}
+};
 
 // ToDo add a couple of methods
