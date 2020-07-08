@@ -12,7 +12,7 @@ export const runTests = () => {
     // console.log(`${i}:  ${rng.next().value}`);
     rands.push(rand.next().value);
   }
-  const uniqueRands = new Set(rngs);
+  const uniqueRands = new Set(rands);
   test("all elms are unique", () => {
     assertEquals(rands.length === uniqueRands.size, true);
   });
