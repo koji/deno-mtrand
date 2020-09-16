@@ -37,5 +37,5 @@ deno fmt **/*.ts
 ## Resources
 
 - [Deno Website](https://deno.land)
-- [Deno Style Guide](https://deno.land/std/style_guide.md)
+- [Deno Style Guide](https://github.com/denoland/deno/blob/master/docs/contributing/style_guide.md)
 - [Deno Gitter](https://gitter.im/denolife/Lobby)
